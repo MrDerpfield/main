@@ -64,6 +64,14 @@
 
 # Importar bibliotecas e os datasets
 #pip install --upgrade pip
+import subprocess
+
+# Atualiza o pip
+subprocess.run(['/home/adminuser/venv/bin/python', '-m', 'pip', 'install', '--upgrade', 'pip'])
+
+# Reinstala as dependências do requirements.txt
+subprocess.run(['/home/adminuser/venv/bin/python', '-m', 'pip', 'install', '-r', 'requirements.txt'])
+
 import pandas as pd
 
 #df_ibyte=pd.read_csv('C:\\Users\\lucas\\MBA Ciência de Dados UNIFOR Turma 5\\DASHBOARDS R PYTHON\\RECLAMEAQUI_IBYTE.csv')
