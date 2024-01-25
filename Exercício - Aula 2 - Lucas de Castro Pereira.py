@@ -63,14 +63,7 @@
 
 
 # Importar bibliotecas e os datasets
-#pip install --upgrade pip
-import subprocess
-
-# Atualiza o pip
-subprocess.run(['/home/adminuser/venv/bin/python', '-m', 'pip', 'install', '--upgrade', 'pip'])
-
-# Reinstala as dependências do requirements.txt
-subprocess.run(['/home/adminuser/venv/bin/python', '-m', 'pip', 'install', '-r', 'requirements.txt'])
+!pip install --upgrade pip
 
 import pandas as pd
 
