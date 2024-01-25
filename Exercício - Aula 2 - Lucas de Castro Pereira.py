@@ -63,7 +63,7 @@
 
 
 # Importar bibliotecas e os datasets
-
+pip install --upgrade pip
 import pandas as pd
 
 df_ibyte=pd.read_csv('C:\\Users\\lucas\\MBA Ciência de Dados UNIFOR Turma 5\\DASHBOARDS R PYTHON\\RECLAMEAQUI_IBYTE.csv')
