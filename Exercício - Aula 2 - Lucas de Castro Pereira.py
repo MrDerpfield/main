@@ -129,6 +129,8 @@ import seaborn as sns
 
 # In[41]:
 
+# Adicione a coluna N_CARACTERES
+df['N_CARACTERES'] = df['DESCRICAO'].apply(len)
 
 # Título do Dashboard
 st.title("Dashboard de Reclamações de Clientes")
@@ -143,7 +145,7 @@ tamanho_minimo_descricao = st.slider("Seletor de Tamanho Mínimo do Texto", min_
 df_filtrado = df[(df['EMPRESA'] == empresa_selecionada) &
                  (df['LOCAL'] == estado_selecionado) &
                  (df['STATUS'] == status_selecionado) &
-                 (df['Tamanho da Descrição'] >= tamanho_minimo_descricao)]
+                 (df['N_CARACTERES'] >= tamanho_minimo_descricao)]
 
 # Série temporal do número de reclamações
 st.subheader("Série Temporal do Número de Reclamações")
