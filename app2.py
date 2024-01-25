@@ -71,6 +71,7 @@ import seaborn as sns
 
 get_ipython().system('pip install --upgrade pip --user')
 get_ipython().system('pip install --upgrade pip')
+get_ipython().system('pip install aiohttp --user')
 get_ipython().system('pip install aiohttp')
 
 
@@ -79,9 +80,9 @@ get_ipython().system('pip install aiohttp')
 
 #Carregar os datasets
 
-df_ibyte=pd.read_csv('C:\\Users\\lucas\\MBA Ciência de Dados UNIFOR Turma 5\\DASHBOARDS R PYTHON\\RECLAMEAQUI_IBYTE.csv')
-df_hapvida=pd.read_csv('C:\\Users\\lucas\\MBA Ciência de Dados UNIFOR Turma 5\\DASHBOARDS R PYTHON\\RECLAMEAQUI_HAPVIDA.csv')
-df_nagem=pd.read_csv('C:\\Users\\lucas\\MBA Ciência de Dados UNIFOR Turma 5\\DASHBOARDS R PYTHON\\RECLAMEAQUI_NAGEM.csv')
+df_ibyte=pd.read_csv('RECLAMEAQUI_IBYTE.csv')
+df_hapvida=pd.read_csv('RECLAMEAQUI_HAPVIDA.csv')
+df_nagem=pd.read_csv('RECLAMEAQUI_NAGEM.csv')
 
 
 # In[67]:
