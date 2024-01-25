@@ -69,6 +69,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+get_ipython().system('pip install pipreqs')
 get_ipython().system('pip install --upgrade pip --user')
 get_ipython().system('pip install --upgrade pip')
 get_ipython().system('pip install aiohttp --user')
@@ -188,7 +190,7 @@ st.pyplot(fig_tamanho_descricao)
 # In[73]:
 
 
-pip freeze > requirements.txt
+pipreqs . --force
 
 
 # In[ ]:
