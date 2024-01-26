@@ -70,11 +70,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-get_ipython().system('pip install pipreqs')
-get_ipython().system('pip install --upgrade pip --user')
-get_ipython().system('pip install --upgrade pip')
-get_ipython().system('pip install aiohttp --user')
-get_ipython().system('pip install aiohttp')
+#get_ipython().system('pip install pipreqs')
+#get_ipython().system('pip install --upgrade pip --user')
+#get_ipython().system('pip install --upgrade pip')
+#get_ipython().system('pip install aiohttp --user')
+#get_ipython().system('pip install aiohttp')
 
 
 # In[66]:
@@ -190,7 +190,7 @@ st.pyplot(fig_tamanho_descricao)
 # In[73]:
 
 
-pipreqs . --force
+#pipreqs . --force
 
 
 # In[ ]:
