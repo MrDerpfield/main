@@ -14,9 +14,9 @@
 # Utilize os arquivos do **RECLAME AQUI** e crie um dashboard com algumas caracteristicas. 
 # 
 # Empresas: 
-# - Hapvida
-# - Nagem
-# - Ibyte
+# - Hapvida 
+# - Nagem 
+# - Ibyte 
 # 
 # O painel deve conter tais informações: 
 # 
