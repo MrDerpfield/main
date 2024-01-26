@@ -146,6 +146,7 @@ df['N_CARACTERES'] = df['DESCRICAO'].apply(len)
 st.title("Dashboard de Reclamações de Clientes")
 
 # Filtros dinâmicos
+st.subheader("Filtros")
 empresa_selecionada = st.sidebar.selectbox("Seletor da Empresa", df['EMPRESA'].unique())
 estado_selecionado = st.sidebar.selectbox("Seletor do Estado", df['LOCAL'].unique())
 status_selecionado = st.sidebar.selectbox("Seletor de STATUS", df['STATUS'].unique())
@@ -165,9 +166,15 @@ sns.lineplot(data=df_temporal, x='ANO', y='Número de Reclamações', hue='MES',
 st.pyplot(fig_temporal)
 
 # Mostrar palavras mais frequentes na coluna 'DESCRICAO'
-st.subheader("Palavras mais frequentes na Descrição")
-top_palavras = pd.Series(' '.join(df_filtrado['DESCRICAO']).split()).value_counts().head(10)
-st.table(top_palavras)
+# st.subheader("Palavras mais frequentes na Descrição")
+# top_palavras = pd.Series(' '.join(df_filtrado['DESCRICAO']).split()).value_counts().head(10)
+# st.table(top_palavras)
+
+# Adicione a tabela de palavras mais frequentes
+st.subheader("Palavras mais frequentes nas reclamações")
+palavras_frequentes = df_filtrado['DESCRICAO'].str.split().explode().value_counts()
+palavras_frequentes = palavras_frequentes[palavras_frequentes.index.str.len() > 5]  # Somente palavras com mais de 5 caracteres
+st.table(palavras_frequentes)
 
 # Frequência de reclamações por estado
 st.subheader("Frequência de Reclamações por Estado")
