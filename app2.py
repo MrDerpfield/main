@@ -150,14 +150,14 @@ st.subheader("Filtros")
 empresa_selecionada = st.sidebar.selectbox("Seletor da Empresa", df['EMPRESA'].unique())
 estado_selecionado = st.sidebar.selectbox("Seletor do Estado", df['LOCAL'].unique())
 status_selecionado = st.sidebar.selectbox("Seletor de STATUS", df['STATUS'].unique())
-#ano_selecionado = st.sidebar.selectbox("Seletor de Ano", df['ANO'].unique())
+ano_selecionado = st.sidebar.selectbox("Seletor de Ano", df['ANO'].unique())
 tamanho_minimo = st.sidebar.slider("Seletor de Tamanho Mínimo do Texto", min_value=0, max_value=df['N_CARACTERES'].max(), value=0)
 
 # Aplica os filtros dinâmicos
 df_filtrado = df[(df['EMPRESA'] == empresa_selecionada) &
                  (df['LOCAL'] == estado_selecionado) &
                  (df['STATUS'] == status_selecionado) &
-                 #(df['ANO'] == ano_selecionado) &
+                 (df['ANO'] == ano_selecionado) &
                  (df['N_CARACTERES'] >= tamanho_minimo)]
 
 # Série temporal do número de reclamações
@@ -193,8 +193,8 @@ if st.sidebar.button('Limpar Estado'):
     estado_selecionado = None
 if st.sidebar.button('Limpar Status'):
     status_selecionado = None
-#if st.sidebar.button('Limpar Ano'):
-#    ano_selecionado = None
+if st.sidebar.button('Limpar Ano'):
+    ano_selecionado = None
 if st.sidebar.button('Limpar Tamanho do Texto'):
     tamanho_minimo = 0
 
