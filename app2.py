@@ -146,10 +146,10 @@ df['N_CARACTERES'] = df['DESCRICAO'].apply(len)
 st.title("Dashboard de Reclamações de Clientes")
 
 # Filtros dinâmicos
-empresa_selecionada = st.selectbox("Seletor da Empresa", df['EMPRESA'].unique())
-estado_selecionado = st.selectbox("Seletor do Estado", df['LOCAL'].unique())
-status_selecionado = st.selectbox("Seletor de STATUS", df['STATUS'].unique())
-tamanho_minimo = st.slider("Seletor de Tamanho Mínimo do Texto", min_value=0, max_value=df['N_CARACTERES'].max(), value=0)
+empresa_selecionada = st.sidebar.selectbox("Seletor da Empresa", df['EMPRESA'].unique())
+estado_selecionado = st.sidebar.selectbox("Seletor do Estado", df['LOCAL'].unique())
+status_selecionado = st.sidebar.selectbox("Seletor de STATUS", df['STATUS'].unique())
+tamanho_minimo = st.sidebar.slider("Seletor de Tamanho Mínimo do Texto", min_value=0, max_value=df['N_CARACTERES'].max(), value=0)
 
 # Aplica os filtros dinâmicos
 df_filtrado = df[(df['EMPRESA'] == empresa_selecionada) &
@@ -164,6 +164,11 @@ fig_temporal, ax_temporal = plt.subplots()
 sns.lineplot(data=df_temporal, x='ANO', y='Número de Reclamações', hue='MES', ax=ax_temporal)
 st.pyplot(fig_temporal)
 
+# Mostrar palavras mais frequentes na coluna 'DESCRICAO'
+st.subheader("Palavras mais frequentes na Descrição")
+top_palavras = pd.Series(' '.join(df_filtrado['DESCRICAO']).split()).value_counts().head(10)
+st.table(top_palavras)
+
 # Frequência de reclamações por estado
 st.subheader("Frequência de Reclamações por Estado")
 df_estado = df_filtrado['LOCAL'].value_counts().reset_index()
@@ -171,6 +176,16 @@ df_estado.columns = ['Estado', 'Número de Reclamações']
 fig_estado, ax_estado = plt.subplots()
 sns.barplot(x='Número de Reclamações', y='Estado', data=df_estado, ax=ax_estado)
 st.pyplot(fig_estado)
+
+# Botões de limpar filtros
+if st.sidebar.button('Limpar Empresa'):
+    empresa_selecionada = None
+if st.sidebar.button('Limpar Estado'):
+    estado_selecionado = None
+if st.sidebar.button('Limpar Status'):
+    status_selecionado = None
+if st.sidebar.button('Limpar Tamanho do Texto'):
+    tamanho_minimo = 0
 
 # Frequência de cada tipo de STATUS
 st.subheader("Frequência de Cada Tipo de STATUS")
