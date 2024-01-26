@@ -174,7 +174,7 @@ st.pyplot(fig_temporal)
 
 # Adicione a tabela de palavras mais frequentes
 st.subheader("Palavras mais frequentes nas reclamações")
-palavras_frequentes = df_filtrado['DESCRICAO'].str.split().explode().value_counts().head(15)
+palavras_frequentes = df_filtrado['DESCRICAO'].str.split().explode().value_counts()
 palavras_frequentes = palavras_frequentes[palavras_frequentes.index.str.len() > 5]  # Somente palavras com mais de 5 caracteres
 st.table(palavras_frequentes)
 
